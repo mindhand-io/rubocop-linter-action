@@ -2,7 +2,6 @@
 
 class Install
   DEFAULT_DEPENDENCIES = {
-    "rubocop" => "latest",
     "rubocop-airbnb" => "latest"
   }.freeze
 
@@ -13,17 +12,12 @@ class Install
   end
 
   def run
-    config_graphql_pro
     return system("bundle install") if config.fetch("bundle", false)
 
     system("gem install #{dependencies}")
   end
 
   private
-
-  def config_graphql_pro
-    system("bundle config gems.graphql.pro #{ENV['GRAPHQL_NAME']}:#{ENV['GRAPHQL_PASSWORD']}") if config.fetch("bundle", false)
-  end
 
   def dependencies
     DEFAULT_DEPENDENCIES.merge(custom_dependencies).map(&method(:version_string)).join(" ")
