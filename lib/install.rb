@@ -2,7 +2,8 @@
 
 class Install
   DEFAULT_DEPENDENCIES = {
-    "rubocop" => "latest"
+    "rubocop" => "latest",
+    "rubocop-airbnb" => "latest"
   }.freeze
 
   attr_reader :config
