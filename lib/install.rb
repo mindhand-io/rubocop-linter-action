@@ -12,7 +12,7 @@ class Install
   def run
     #return system("bundle install") if config.fetch("bundle", false)
 
-    system("gem install rubocop -v 0.76.0 && gem install rubcop-airbnb")
+    system("gem install rubocop -v 0.76.0 && gem install rubocop-airbnb")
   end
 
   private
